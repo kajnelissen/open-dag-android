@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.fict.opendag"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="16" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.fict.opendag.BaseActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.fict.opendag.ScheduleActivity"
+            android:label="@string/title_activity_schedule"
+            android:parentActivityName="com.fict.opendag.MainActivity" >
+        </activity>
+        <activity
+            android:name="com.fict.opendag.ScheduleItemActivity"
+            android:label="@string/title_activity_schedule"
+            android:parentActivityName="com.fict.opendag.ScheduleActivity" >
+        </activity>
+        <activity
+            android:name="com.fict.opendag.MainActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name="com.fict.opendag.LoadActivity"
+            android:label="@string/title_activity_load" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.fict.opendag.FloorplanActivity"
+            android:label="@string/title_activity_floorplan"
+            android:parentActivityName="com.fict.opendag.MainActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.fict.opendag.StudyInfoActivity"
+            android:label="@string/title_activity_study_info"
+            android:parentActivityName="com.fict.opendag.StudiesActivity">
+        </activity>
+        <activity
+            android:name="com.fict.opendag.StudiesActivity"
+            android:label="@string/title_activity_studies"
+            android:parentActivityName="com.fict.opendag.MainActivity">
+        </activity>
+    </application>
+
+</manifest>
