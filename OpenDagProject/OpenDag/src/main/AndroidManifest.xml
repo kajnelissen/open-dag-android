@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zuyd.fict.opendag"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="16" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.zuyd.fict.opendag.LoadActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zuyd.fict.opendag.BaseActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.zuyd.fict.opendag.ScheduleActivity"
+            android:label="@string/title_activity_schedule"
+            android:parentActivityName="com.fict.opendag.MainActivity" >
+        </activity>
+        <activity
+            android:name="com.zuyd.fict.opendag.ScheduleItemActivity"
+            android:label="@string/title_activity_schedule"
+            android:parentActivityName="com.fict.opendag.ScheduleActivity" >
+        </activity>
+        <activity
+            android:name="com.zuyd.fict.opendag.MainActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
+        <!-- <activity -->
+        <!-- android:name="com.fict.opendag.SurveyActivity" -->
+        <!-- android:label="@string/title_activity_study_quiz" -->
+        <!-- android:parentActivityName="com.fict.opendag.MainActivity" > -->
+        <!-- </activity> -->
+        <activity
+            android:name="com.zuyd.fict.opendag.FloorplanActivity"
+            android:label="@string/title_activity_floorplan"
+            android:parentActivityName="com.fict.opendag.MainActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.zuyd.fict.opendag.StudyInfoActivity"
+            android:label="@string/title_activity_study_info"
+            android:parentActivityName="com.fict.opendag.StudiesActivity" >
+        </activity>
+        <!-- <activity -->
+        <!-- android:name="com.fict.opendag.StudyFragment" -->
+        <!-- android:label="@string/title_activity_study_fragment" > -->
+        <!-- </activity> -->
+        <activity
+            android:name="com.zuyd.fict.opendag.StudiesActivity"
+            android:label="@string/title_activity_studies"
+            android:parentActivityName="com.fict.opendag.MainActivity" >
+        </activity>
+        <activity
+            android:name="com.zuyd.fict.opendag.NavigationActivity"
+            android:label="@string/title_activity_navigation" >
+        </activity>
+    </application>
+
+</manifest>
