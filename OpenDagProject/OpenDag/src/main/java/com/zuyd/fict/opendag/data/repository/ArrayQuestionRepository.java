@@ -56,4 +56,15 @@ public class ArrayQuestionRepository implements IQuestionRepository {
         return false;
     }
 
+    public Question getAtPosition(int position) {
+        int pos = 0;
+        for ( Question q : this._items.values() ) {
+            if ( pos == position ) {
+                return q;
+            }
+            pos++;
+        }
+        return null;
+    }
+
 }

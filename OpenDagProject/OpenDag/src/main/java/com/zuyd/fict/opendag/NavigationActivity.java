@@ -1,37 +1,25 @@
 package com.zuyd.fict.opendag;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.app.Activity;
-import android.util.Base64;
-import android.util.DisplayMetrics;
 import android.view.Menu;
-import android.widget.Gallery;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.HorizontalScrollView;
 
+import com.zuyd.fict.opendag.data.EntityManager;
+import com.zuyd.fict.opendag.data.IEntityManager;
 import com.zuyd.fict.opendag.model.Photo;
 
-import java.util.ArrayList;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.net.URL;
-import java.nio.charset.Charset;
 import java.util.List;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
+import com.squareup.picasso.*;
 
 public class NavigationActivity extends Activity {
 
     private List<Photo> _photos;
+    private Map<Integer, Photo> _items;
 
     private final String LOG_TAG = "Navigation";
 
@@ -39,36 +27,25 @@ public class NavigationActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
-        this._photos = new ArrayList<Photo>();
-
-        setContentView(R.layout.activity_navigation);
+        IEntityManager em = EntityManager.getInstance();
+        this._items = em.photos().getAll();
         HorizontalScrollView scrollview = (HorizontalScrollView) findViewById(R.id.scrollview);
-//LinearLayout hll = (LinearLayout) findViewById(R.id.horizontalLL);
+
         LinearLayout ll = new LinearLayout(getApplicationContext());
 
-        for(int i = 0; i < this._photos.size(); i++){
-            Photo photo = this._photos.get(i);
-            String baseString = photo.getImage();
-            byte[] decodedString = Base64.decode(baseString, Base64.DEFAULT);
-            Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+        for(Map.Entry<Integer, Photo> entry : _items.entrySet()){
+            int key = entry.getKey();
+            Photo photo = this._items.get(key);
 
             LinearLayout l = new LinearLayout(getApplicationContext());
-            ImageView iv = new ImageView(getApplicationContext());
 
-            DisplayMetrics displaymetrics = new DisplayMetrics();
-            getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
-            int height = displaymetrics.heightPixels;
-            int width = displaymetrics.widthPixels;
+            ImageView imageView = new ImageView(getApplicationContext());
+            String url = "http://opendagzuyd2013-001-site1.smarterasp.net/images/" + photo.getFileName();
+            Picasso.with(NavigationActivity.this).load(url).into(imageView);
 
-            LinearLayout.LayoutParams parms = new LinearLayout.LayoutParams(width,width);
-            iv.setLayoutParams(parms);
-
-            iv.setImageBitmap(decodedByte);
-            l.addView(iv);
+            l.addView(imageView);
 
             ll.addView(l);
-
-//hll.addView(iv);
         }
 
         scrollview.addView(ll);
@@ -81,5 +58,5 @@ public class NavigationActivity extends Activity {
         getMenuInflater().inflate(R.menu.navigation, menu);
         return true;
     }
-    
+
 }

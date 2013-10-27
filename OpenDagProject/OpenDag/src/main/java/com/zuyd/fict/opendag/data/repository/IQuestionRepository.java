@@ -20,4 +20,6 @@ public interface IQuestionRepository {
 
     public boolean remove(int id);
 
+    public Question getAtPosition(int position);
+
 }

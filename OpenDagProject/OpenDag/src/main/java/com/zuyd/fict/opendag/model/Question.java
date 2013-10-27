@@ -31,7 +31,7 @@ public class Question extends Entity {
         this._text = text;
     }
 
-    public String getTest() {
+    public String getText() {
         return this._text;
     }
 

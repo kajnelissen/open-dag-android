@@ -1,5 +1,8 @@
 package com.zuyd.fict.opendag.model;
 
+import com.zuyd.fict.opendag.data.EntityManager;
+import com.zuyd.fict.opendag.data.IEntityManager;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -7,36 +10,36 @@ import java.util.Map;
 /**
  * Created by Kaj on 7-10-13.
  */
-public class StudyQuizSession {
+public class SurveySession {
 
-    private static StudyQuizSession ourInstance = new StudyQuizSession();
+    private static SurveySession ourInstance = new SurveySession();
 
-    private StudyQuiz _quiz = null;
+//    private StudyQuiz _quiz = null;
 
     private HashMap<Integer, Boolean> _answers;
 
-    public static StudyQuizSession getInstance() {
+    public static SurveySession getInstance() {
         return ourInstance;
     }
 
-    private StudyQuizSession() {
+    private SurveySession() {
         this._answers = new HashMap<Integer, Boolean>();
     }
 
-    private StudyQuizSession(ArrayList<Integer> qIds) {
+    private SurveySession(ArrayList<Integer> qIds) {
         this._answers = new HashMap<Integer, Boolean>();
         for ( int i : qIds ) {
             this._answers.put(i, null);
         }
     }
 
-    public void setStudyQuiz(StudyQuiz quiz) {
-        this._quiz = quiz;
-    }
+//    public void setStudyQuiz(StudyQuiz quiz) {
+//        this._quiz = quiz;
+//    }
 
-    public StudyQuiz getStudyQuiz() {
-        return this._quiz;
-    }
+//    public StudyQuiz getStudyQuiz() {
+//        return this._quiz;
+//    }
 
     public void addAnswer(int qId, boolean answer) {
         this._answers.put(qId, answer);
@@ -54,7 +57,8 @@ public class StudyQuizSession {
     }
 
     public boolean isCompleted() {
-        if ( this._answers.isEmpty() || this._answers.entrySet().size() != this._quiz.getQuestions().size() ) {
+        IEntityManager em = EntityManager.getInstance();
+        if ( this._answers.isEmpty() || this._answers.entrySet().size() != em.questions().getAll().size() ) {
             return false;
         }
         for ( Map.Entry<Integer, Boolean> answer : this._answers.entrySet() ) {
@@ -63,6 +67,20 @@ public class StudyQuizSession {
             }
         }
         return true;
+    }
+
+    public int getScore() {
+        if ( !this.isCompleted() ) {
+            return -1;
+        } else {
+            int score = 0;
+            for ( Boolean answer : this._answers.values() ) {
+                if ( answer == Boolean.TRUE ) {
+                    score++;
+                }
+            }
+            return score;
+        }
     }
 
 }

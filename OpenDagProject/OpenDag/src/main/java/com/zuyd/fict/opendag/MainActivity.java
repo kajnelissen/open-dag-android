@@ -30,7 +30,7 @@ public class MainActivity extends BaseActivity {
         items.add(new HomeScreenItem(HomeScreenItemType.STUDY_INFO, "Studie informatie"));
         items.add(new HomeScreenItem(HomeScreenItemType.QUIZ, "Studiewijzer"));
         items.add(new HomeScreenItem(HomeScreenItemType.FLOORPLAN, "Plattegrond"));
-        items.add(new HomeScreenItem(HomeScreenItemType.CONTACT, "Contact"));
+//        items.add(new HomeScreenItem(HomeScreenItemType.CONTACT, "Contact"));
 
         this._listView.setAdapter(new HomeScreenAdapter(getApplicationContext(), items));
         this._listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -50,10 +50,10 @@ public class MainActivity extends BaseActivity {
                         intent = new Intent(getApplicationContext(), StudiesActivity.class);
                         startActivity(intent);
                         break;
-//                    case 3:
-//                        intent = new Intent(getApplicationContext(), SurveyActivity.class);
-//                        startActivity(intent);
-//                        break;
+                    case 3:
+                        intent = new Intent(getApplicationContext(), SurveyActivity.class);
+                        startActivity(intent);
+                        break;
                     case 4:
                         intent = new Intent(getApplicationContext(), FloorplanActivity.class);
                         startActivity(intent);

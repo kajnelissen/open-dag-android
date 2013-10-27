@@ -17,8 +17,10 @@
     <string name="title_activity_schedule_entry">Dagprogramma</string>
     <string name="title_activity_study_info">Studie Informatie</string>
     <string name="title_activity_study_fragment">Studie</string>
-    <string name="title_activity_studies">Studies</string>
+    <string name="title_activity_studies">Profielen</string>
     <string name="title_activity_survey">Studiewijzer</string>
     <string name="title_activity_navigation">Navigatie</string>
+    <string name="title_activity_studiewijzer">SurveyActivity</string>
+    <string name="title_activity_survey_result">Studiewijzer</string>
 
 </resources>

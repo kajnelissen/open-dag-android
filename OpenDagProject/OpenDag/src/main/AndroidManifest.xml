@@ -31,45 +31,53 @@
         <activity
             android:name="com.zuyd.fict.opendag.ScheduleActivity"
             android:label="@string/title_activity_schedule"
-            android:parentActivityName="com.fict.opendag.MainActivity" >
+            android:parentActivityName="com.zuyd.fict.opendag.MainActivity"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="com.zuyd.fict.opendag.ScheduleItemActivity"
             android:label="@string/title_activity_schedule"
-            android:parentActivityName="com.fict.opendag.ScheduleActivity" >
+            android:parentActivityName="com.zuyd.fict.opendag.ScheduleActivity"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="com.zuyd.fict.opendag.MainActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait">
         </activity>
-        <!-- <activity -->
-        <!-- android:name="com.fict.opendag.SurveyActivity" -->
-        <!-- android:label="@string/title_activity_study_quiz" -->
-        <!-- android:parentActivityName="com.fict.opendag.MainActivity" > -->
-        <!-- </activity> -->
         <activity
             android:name="com.zuyd.fict.opendag.FloorplanActivity"
             android:label="@string/title_activity_floorplan"
-            android:parentActivityName="com.fict.opendag.MainActivity"
+            android:parentActivityName="com.zuyd.fict.opendag.MainActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.zuyd.fict.opendag.StudyInfoActivity"
             android:label="@string/title_activity_study_info"
-            android:parentActivityName="com.fict.opendag.StudiesActivity" >
+            android:parentActivityName="com.zuyd.fict.opendag.StudiesActivity" >
         </activity>
-        <!-- <activity -->
-        <!-- android:name="com.fict.opendag.StudyFragment" -->
-        <!-- android:label="@string/title_activity_study_fragment" > -->
-        <!-- </activity> -->
         <activity
             android:name="com.zuyd.fict.opendag.StudiesActivity"
             android:label="@string/title_activity_studies"
-            android:parentActivityName="com.fict.opendag.MainActivity" >
+            android:parentActivityName="com.zuyd.fict.opendag.MainActivity"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="com.zuyd.fict.opendag.NavigationActivity"
-            android:label="@string/title_activity_navigation" >
+            android:label="@string/title_activity_navigation"
+            android:parentActivityName="com.zuyd.fict.opendag.MainActivity">
+        </activity>
+        <activity
+            android:name="com.zuyd.fict.opendag.SurveyActivity"
+            android:label="@string/title_activity_survey"
+            android:parentActivityName="com.zuyd.fict.opendag.MainActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zuyd.fict.opendag.SurveyResultActivity"
+            android:label="@string/title_activity_survey_result"
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.zuyd.fict.opendag.MainActivity">
         </activity>
     </application>
 
