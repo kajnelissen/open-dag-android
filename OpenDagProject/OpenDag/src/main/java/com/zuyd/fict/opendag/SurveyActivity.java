@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -66,8 +67,10 @@ public class SurveyActivity extends FragmentActivity {
         getMenuInflater().inflate(R.menu.survey, menu);
         return true;
     }
-    
-    
+
+//    public void selectPage(int page) {
+//        mViewPager.setCurrentItem(page);
+//    }
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -81,19 +84,16 @@ public class SurveyActivity extends FragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a DummySectionFragment (defined as a static inner class
-            // below) with the page number as its lone argument.
             Fragment fragment = new QuestionSectionFragment();
             Bundle args = new Bundle();
             args.putInt(QuestionSectionFragment.ARG_QUESTION_NUMBER, position + 1);
+            args.putInt(QuestionSectionFragment.ARG_POSITION, position);
             fragment.setArguments(args);
             return fragment;
         }
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
             IEntityManager em = EntityManager.getInstance();
             return em.questions().getAll().size();
         }
@@ -114,30 +114,6 @@ public class SurveyActivity extends FragmentActivity {
         }
     }
 
-    /**
-     * A dummy fragment representing a section of the app, but that simply
-     * displays dummy text.
-     */
-    public static class DummySectionFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        public static final String ARG_SECTION_NUMBER = "section_number";
-
-        public DummySectionFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_survey_dummy, container, false);
-            TextView dummyTextView = (TextView) rootView.findViewById(R.id.section_label);
-            dummyTextView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
-            return rootView;
-        }
-    }
-
     public static class QuestionSectionFragment extends Fragment {
         /**
          * The fragment argument representing the section number for this
@@ -145,11 +121,15 @@ public class SurveyActivity extends FragmentActivity {
          */
         public static final String ARG_QUESTION_NUMBER = "question_number";
         public static final String ARG_QUESTION_ID = "question_id";
+        public static final String ARG_POSITION = "position";
 
-        private int _qId;
-
-        public QuestionSectionFragment() {
-        }
+//        private int _qId;
+//
+//        private int _currentPage;
+//
+//        public QuestionSectionFragment() {
+//            this._currentPage = getArguments().getInt(ARG_POSITION);
+//        }
 
 //        public QuestionSectionFragment(int questionId) {
 //            this._qId = questionId;
@@ -203,6 +183,14 @@ public class SurveyActivity extends FragmentActivity {
                     isCompleted();
                 }
             });
+
+//            ImageButton btnPrevious = (ImageButton) rootView.findViewById(R.id.grid).findViewById(R.id.btnPrevious);
+//            btnPrevious.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    ((SurveyActivity) getActivity()).selectPage(_currentPage);
+//                }
+//            });
 
             return rootView;
         }

@@ -30,6 +30,7 @@ public class StudyInfoActivity extends BaseActivity {
 
 //    private TextView _txtTitle, _txtDescription, _txtLocation, _txtStart, _txtEnd, _txtSpeaker;
     WebView webView;
+    TextView txtHeader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,9 @@ public class StudyInfoActivity extends BaseActivity {
         Intent intent = getIntent();
         int id = intent.getIntExtra("item_id", 1);
         Study item = em.studies().getById(id);
+
+        this.txtHeader = (TextView) findViewById(R.id.txtStudyHeader);
+        this.txtHeader.setText(item.getName());
 
         this.webView = (WebView) findViewById(R.id.webView);
         this.webView.loadData(item.getInformation().getContent(), "text/html", "UTF-8");

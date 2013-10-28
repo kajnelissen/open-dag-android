@@ -1,5 +1,6 @@
 package com.zuyd.fict.opendag;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -37,6 +38,8 @@ public class LoadActivity extends Activity {
 
     private final String LOG_TAG = "LoadActivity";
 
+    private ProgressDialog _dialog;
+
     private final String API_URL_STUDIES = "http://opendagzuyd2013-001-site1.smarterasp.net/api/Study";
     private final String API_URL_SURVEY = "http://opendagzuyd2013-001-site1.smarterasp.net/api/Survey";
     private final String API_URL_SCHEDULE = "http://opendagzuyd2013-001-site1.smarterasp.net/api/TimeTable";
@@ -52,27 +55,33 @@ public class LoadActivity extends Activity {
 
         ImageView logo = (ImageView) findViewById(R.id.zuyd_logo);
 
-        FetchStudiesTask fs = new FetchStudiesTask();
-        fs.execute(API_URL_STUDIES);
+        if ( !this._isLoaded ) {
 
-        FetchQuestionsTask fq = new FetchQuestionsTask();
-        fq.execute(API_URL_SURVEY);
+            this._dialog = ProgressDialog.show(LoadActivity.this, "", "Loading...");
 
-        FetchScheduleItemsTask fsi = new FetchScheduleItemsTask();
-        fsi.execute(API_URL_SCHEDULE);
+            FetchStudiesTask fs = new FetchStudiesTask();
+            fs.execute(API_URL_STUDIES);
 
-        FetchPhotosTask fp = new FetchPhotosTask();
-        fp.execute(API_URL_NAVIGATION);
+            FetchQuestionsTask fq = new FetchQuestionsTask();
+            fq.execute(API_URL_SURVEY);
 
-        logo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if ( _isLoaded ) {
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent);
-                }
-            }
-        });
+            FetchScheduleItemsTask fsi = new FetchScheduleItemsTask();
+            fsi.execute(API_URL_SCHEDULE);
+
+            FetchPhotosTask fp = new FetchPhotosTask();
+            fp.execute(API_URL_NAVIGATION);
+
+        }
+
+//        logo.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if ( _isLoaded ) {
+//                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//                    startActivity(intent);
+//                }
+//            }
+//        });
     }
 
     @Override
@@ -86,10 +95,14 @@ public class LoadActivity extends Activity {
         this._fetchCount++;
         if ( this._fetchCount == FETCH_TOTAL ) {
             this._isLoaded = true;
+            _dialog.dismiss();
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
         }
     }
 
     private class FetchScheduleItemsTask extends AsyncTask<String, Void, ArrayList<ScheduleItem>> {
+
         protected ArrayList<ScheduleItem> doInBackground(String... urls) {
             Gson gson = new Gson();
             ArrayList<ScheduleItem> ret = new ArrayList<ScheduleItem>();

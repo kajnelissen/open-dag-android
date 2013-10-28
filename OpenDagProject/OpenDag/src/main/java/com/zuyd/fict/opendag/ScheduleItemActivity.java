@@ -36,8 +36,8 @@ public class ScheduleItemActivity extends Activity {
         this._txtStart.setText(item.getStartTime());
         this._txtEnd = (TextView) findViewById(R.id.schedule_item_endtime);
         this._txtEnd.setText(item.getEndTime());
-        this._txtSpeaker = (TextView) findViewById(R.id.schedule_item_speaker);
-        this._txtSpeaker.setText(item.getSpeaker());
+//        this._txtSpeaker = (TextView) findViewById(R.id.schedule_item_speaker);
+//        this._txtSpeaker.setText(item.getSpeaker());
     }
 
 

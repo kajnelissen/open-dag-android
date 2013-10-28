@@ -10,5 +10,6 @@
         android:text="New Text"
         android:id="@+id/txt_study_list_item"
         android:layout_gravity="left|center_vertical"
-        android:padding="@dimen/default_padding" />
+        android:padding="@dimen/default_padding"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 </LinearLayout>
