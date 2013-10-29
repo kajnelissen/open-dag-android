@@ -15,7 +15,7 @@ public class FloorplanActivity extends Activity {
         //setContentView(R.layout.activity_floorplan);
 
         PanZoomImageView img = new PanZoomImageView(this);
-        img.setImageResource(R.drawable.map_oceania);
+        img.setImageResource(R.drawable.plattegrond);
         img.setMaxZoom(4f);
 
         //img.setScaleType(ImageView.ScaleType.CENTER_CROP);

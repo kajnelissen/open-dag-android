@@ -38,38 +38,4 @@
         android:text="Nee"
         android:id="@+id/btnQuestionFalse" />
 
-    <GridLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_gravity="left|center_vertical"
-        android:columnCount="2"
-        android:rowCount="1">
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnPrevious"
-            android:layout_gravity="center_vertical|bottom|left"
-            android:background="#ffffff"
-            android:padding="@dimen/default_padding"
-            android:src="@drawable/previous"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:layout_columnSpan="1"
-            android:layout_rowSpan="1" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnNext"
-            android:layout_gravity="center_vertical|bottom|right"
-            android:background="#ffffff"
-            android:src="@drawable/next"
-            android:padding="@dimen/default_padding"
-            android:layout_row="0"
-            android:layout_column="1"
-            android:layout_columnSpan="1"
-            android:layout_rowSpan="1" />
-    </GridLayout>
-
 </LinearLayout>
