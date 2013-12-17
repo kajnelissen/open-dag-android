@@ -14,8 +14,6 @@ public class SurveySession {
 
     private static SurveySession ourInstance = new SurveySession();
 
-//    private StudyQuiz _quiz = null;
-
     private HashMap<Integer, Boolean> _answers;
 
     public static SurveySession getInstance() {
