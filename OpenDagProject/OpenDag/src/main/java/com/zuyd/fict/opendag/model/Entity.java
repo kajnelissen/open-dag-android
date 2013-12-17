@@ -14,5 +14,9 @@ public abstract class Entity {
     public int getId() {
         return this._id;
     }
+    
+    public void setId(int id) {
+        this._id = id;
+    }
 
 }
