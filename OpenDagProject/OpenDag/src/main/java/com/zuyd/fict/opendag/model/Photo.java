@@ -5,8 +5,6 @@ package com.zuyd.fict.opendag.model;
  */
 public class Photo extends Entity {
 
-    private int _id;
-
     private String _image;
 
 
@@ -14,13 +12,8 @@ public class Photo extends Entity {
 
     public Photo(int id, String image, String fileName) {
         super(id);
-        this.setId(id);
         this.setImage(image);
         this.setFileName(fileName);
-    }
-
-    public void setId(int _id) {
-        this._id = _id;
     }
 
     public void setImage(String _image) {
@@ -29,10 +22,6 @@ public class Photo extends Entity {
 
     public void setFileName(String _fileName) {
         this._fileName = _fileName;
-    }
-
-    public int getId() {
-        return _id;
     }
 
     public String getFileName() {
