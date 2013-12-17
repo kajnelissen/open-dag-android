@@ -1,8 +1,6 @@
 package com.zuyd.fict.opendag.model;
 
-public class StudyInfo {
-
-    private int id;
+public class StudyInfo extends Entity {
 
     private String title;
 
@@ -10,23 +8,11 @@ public class StudyInfo {
 
     private int studyId;
 
-    public StudyInfo() {
-
-    }
-
     public StudyInfo(int id, String title, String content, int studyId) {
-        this.setId(id);
+        super(id);
         this.setTitle(title);
         this.setContent(content);
         this.setStudyId(studyId);
-    }
-
-    public int getId() {
-        return this.id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTitle() {
