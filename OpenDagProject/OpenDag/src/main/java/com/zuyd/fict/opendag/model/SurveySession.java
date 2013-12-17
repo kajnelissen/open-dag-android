@@ -33,14 +33,6 @@ public class SurveySession {
         }
     }
 
-//    public void setStudyQuiz(StudyQuiz quiz) {
-//        this._quiz = quiz;
-//    }
-
-//    public StudyQuiz getStudyQuiz() {
-//        return this._quiz;
-//    }
-
     public void addAnswer(int qId, boolean answer) {
         this._answers.put(qId, answer);
     }
