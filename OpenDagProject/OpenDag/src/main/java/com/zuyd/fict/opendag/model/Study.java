@@ -16,27 +16,27 @@ public class Study extends Entity {
     }
 
     public String getName() {
-        return this.name;
+        return this._name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this._name = name;
     }
 
     public String getShortName() {
-        return this.shortName;
+        return this._shortName;
     }
 
     public void setShortName(String shortName) {
-        this.shortName = shortName;
+        this._shortName = shortName;
     }
 
     public StudyInfo getInformation() {
-        return this.information;
+        return this._information;
     }
 
     public void setInformation(StudyInfo info) {
-        this.information = info;
+        this._information = info;
     }
 
 }
