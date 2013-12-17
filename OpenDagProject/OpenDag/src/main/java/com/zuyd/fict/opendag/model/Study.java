@@ -1,32 +1,18 @@
 package com.zuyd.fict.opendag.model;
 
-public class Study {
+public class Study extends Entity {
 
-    private int id;
+    private String _name;
 
-    private String name;
+    private String _shortName;
 
-    private String shortName;
-
-    private StudyInfo information;
-
-    public Study() {
-
-    }
+    private StudyInfo _information;
 
     public Study(int id, String name, String shortName, StudyInfo info) {
-        this.setId(id);
+        super(id);
         this.setName(name);
         this.setShortName(shortName);
         this.setInformation(info);
-    }
-
-    public int getId() {
-        return this.id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
