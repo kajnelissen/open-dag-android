@@ -16,15 +16,11 @@ import java.util.Map;
 
 public class ScheduleActivity extends BaseActivity {
 
-//    IEntityManager _em;
-
     ListView _scheduleList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        int pid = android.os.Process.myPid();
 
         EntityManager em = EntityManager.getInstance();
 
