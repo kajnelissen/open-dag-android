@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import com.squareup.picasso.*;
 
-public class NavigationActivity extends Activity {
+public class NavigationActivity extends BaseActivity {
 
     private List<Photo> _photos;
     private Map<Integer, Photo> _items;
