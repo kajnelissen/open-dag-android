@@ -9,7 +9,7 @@ import com.zuyd.fict.opendag.data.EntityManager;
 import com.zuyd.fict.opendag.data.IEntityManager;
 import com.zuyd.fict.opendag.model.SurveySession;
 
-public class SurveyResultActivity extends Activity {
+public class SurveyResultActivity extends BaseActivity {
 
     private TextView _txtScore;
     private TextView _txtScoreText;
