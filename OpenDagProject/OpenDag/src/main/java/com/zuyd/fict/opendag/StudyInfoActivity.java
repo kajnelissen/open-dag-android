@@ -28,7 +28,6 @@ import com.zuyd.fict.opendag.model.Study;
 
 public class StudyInfoActivity extends BaseActivity {
 
-//    private TextView _txtTitle, _txtDescription, _txtLocation, _txtStart, _txtEnd, _txtSpeaker;
     WebView webView;
     TextView txtHeader;
 
@@ -50,17 +49,13 @@ public class StudyInfoActivity extends BaseActivity {
         this.webView = (WebView) findViewById(R.id.webView);
         this.webView.loadData(item.getInformation().getContent(), "text/html", "UTF-8");
 
-//        this._txtTitle = (TextView) findViewById(R.id.schedule_item_title);
-//        this._txtTitle.setText(item.getTitle());
-
-
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.schedule_item, menu);
+        //        getMenuInflater().inflate(R.menu.schedule_item, menu);
         return true;
     }
 
