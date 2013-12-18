@@ -72,16 +72,6 @@ public class LoadActivity extends Activity {
             fp.execute(API_URL_NAVIGATION);
 
         }
-
-//        logo.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if ( _isLoaded ) {
-//                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-//                    startActivity(intent);
-//                }
-//            }
-//        });
     }
 
     @Override
@@ -332,16 +322,11 @@ public class LoadActivity extends Activity {
             ArrayList<Photo> photos = new ArrayList<Photo>();
 
             try {
-// fetch JSON string from API
+                
                 String result = readJsonFromUrl(urls[0]);
 
-// parse the JSON string
-// in this case, we have fetched an array of studies
                 JsonParser parser = new JsonParser();
-//JsonArray array = parser.parse(result).getAsJsonArray();
 
-
-// some declarations
                 JsonObject navigationRoute, obj;
                 JsonArray navigationTrack;
                 Photo p;
@@ -350,15 +335,9 @@ public class LoadActivity extends Activity {
                 navigationTrack = navigationRoute.get("Tracks").getAsJsonArray();
                 obj = navigationTrack.get(0).getAsJsonObject();
 
-// loop through the fetched studies and process them one by one
                 for ( int i = 0; i < navigationTrack.size(); i++ ) {
-
-// look closely at the structure of the JSON string
-// to find out how to parse the various elements
-// and arrays in the correct order
                     obj = navigationTrack.get(i).getAsJsonObject();
 
-// build our StudyInfo object from JsonObject
                     p = new Photo(
                             obj.get("Id").getAsInt(),
                             obj.get("Image").getAsString(),
@@ -368,11 +347,9 @@ public class LoadActivity extends Activity {
                     photos.add(p);
                 }
 
-// deze roept 'ie automatisch aan na afloop fetchen
-//onPostExecute(photos);
 
             } catch ( IOException exc ) {
-//Log.d(LOG_TAG, "Couldn't fetch the result.");
+                Log.d(LOG_TAG, "Couldn't fetch the result.");
             }
 
             return photos;
